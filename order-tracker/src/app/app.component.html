@@ -1,0 +1,6 @@
+<div>Orders</div>
+<div class="no-select container">
+  <div class="card" *ngFor="let order of orders" class="card">
+      <order-detail [order]="order"></order-detail>
+  </div>
+</div>

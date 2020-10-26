@@ -2,7 +2,11 @@ import pdfreader
 from pdfreader import PDFDocument, SimplePDFViewer
 from functions import cleanString
 from ItemsClass import Item
-fd = open("order2.pdf", "rb")
+from datetime import datetime
+import json
+import re
+
+fd = open("order1.pdf", "rb")
 doc = PDFDocument(fd)
 numpages=len([p for p in doc.pages()])
 viewer = SimplePDFViewer(fd)
@@ -21,7 +25,7 @@ Order = {"Items": [], "Request": "", "Total": "","Customer": "", "Delivery": ""}
 requesting = False
 for s in strings:
     if s == "x":
-        Items.append(item)
+        Items.append(item.__dict__)
         item = Item()
         item.count = prev
         prev = "x"
@@ -55,7 +59,8 @@ for s in strings:
             Order["Request"] = cleanString(s)
             prev = "OrderReq"
     elif "Subtotal" in s:
-        Items.append(item)
+        Items.append(item.__dict__)
+        print()
         item = Item()
         prev = s
     elif "request" in prev and not s.isnumeric():
@@ -79,4 +84,9 @@ for s in strings:
         prev = s
 Order["Items"] = Items[1:]
 
-print(Order)
+date = re.findall('[0-9]{2}/[0-9]{2}/[0-9]{4}', Order["Delivery"])[0]
+day = datetime.strptime(date,'%m/%d/%Y').strftime("%A")
+
+Order["Delivery"] = f'{day} {date}'
+
+print(json.dumps(Order))

@@ -1,0 +1,21 @@
+.card{
+    display: inline-block;
+    background-color: #d8d8d8;
+    border-radius: 8px;
+    margin: 1px;
+    width: 17%;
+}
+
+.container{
+    display: flex;
+}
+
+.no-select{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
