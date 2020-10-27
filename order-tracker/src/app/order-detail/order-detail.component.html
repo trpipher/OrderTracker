@@ -1,27 +1,25 @@
 
 <h4>{{order.customer}}</h4>
-<h6>{{order.date}}</h6>
-<h5>Todo Items:</h5>
+<h4>{{order.date}}</h4>
+<h4>Todo Items:</h4>
 <div *ngFor="let item of order.items">
-    <div class="item" *ngIf="!item.completed">
+    <div class="item" *ngIf="!item.completed" (click)="onSelect(item)">
         <div>{{item.count}} x {{item.name}} ${{item.price}}</div>
         <div *ngIf="item.portion"> <b>Portion:</b> {{item.portion}}</div>    
         <div *ngIf="item.flavor"> <b>Flavor:</b> {{item.flavor}}</div>
         <div *ngIf="item.addition"> <b>Addition:</b> {{item.addition}}</div>
         <div *ngIf="item.sides"> <b>Sides:</b> {{item.sides}}</div>
         <div *ngIf="item.request"> <b>Request:</b> {{item.request}}</div>
-        <button (click)="onSelect(item)">x</button>   
     </div>
 </div>
-<h5>Completed Items:</h5>
+<h4>Completed Items:</h4>
 <div *ngFor="let item of order.items">
-    <div class="item" *ngIf="item.completed">
+    <div class="item completed" *ngIf="item.completed" (click)="onSelect(item)">
         <div>{{item.count}} x {{item.name}} ${{item.price}}</div>
         <div *ngIf="item.portion"> <b> Portion: </b> {{item.portion}}</div>    
         <div *ngIf="item.flavor"> <b> Flavor: </b> {{item.flavor}}</div>
         <div *ngIf="item.addition"> <b> Addition: </b> {{item.addition}}</div>
         <div *ngIf="item.sides"> <b> Sides: </b> {{item.sides}}</div>
-        <div *ngIf="item.request"> <b> Request: </b> {{item.request}}</div>
-        <button (click)="onSelect(item)">x</button>   
+        <div *ngIf="item.request"> <b> Request: </b> {{item.request}}</div>  
     </div>
 </div>

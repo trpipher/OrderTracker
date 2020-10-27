@@ -8,7 +8,9 @@
     margin-top: 4px;
     border-radius: 4px;;
 }
-
+*{
+    font-family: sans-serif;
+}
 .item button{
     position: absolute;
     top: 1px;
@@ -22,4 +24,8 @@
     border-radius: 50px;
     border-width: 2px;
     border-color: black;
+}
+
+.completed {
+    text-decoration: line-through;
 }
