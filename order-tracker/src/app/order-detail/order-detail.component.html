@@ -3,25 +3,25 @@
 <h6>{{order.date}}</h6>
 <h5>Todo Items:</h5>
 <div *ngFor="let item of order.items">
-    <div *ngIf="!item.completed" (click)="onSelect(item)">
-        <p>{{item.count}} x {{item.name}} ${{item.price}}</p>
-        <p *ngIf="item.portion"> <b> Portion: </b> {{item.portion}}</p>    
-        <p *ngIf="item.flavor"> <b> Flavor: </b> {{item.flavor}}</p>
-        <p *ngIf="item.addition"> <b> Addition: </b> {{item.addition}}</p>
-        <p *ngIf="item.sides"> <b> Sides: </b> {{item.sides}}</p>
-        <p *ngIf="item.request"> <b> Request: </b> {{item.request}}</p>
-            
+    <div class="item" *ngIf="!item.completed">
+        <div>{{item.count}} x {{item.name}} ${{item.price}}</div>
+        <div *ngIf="item.portion"> <b>Portion:</b> {{item.portion}}</div>    
+        <div *ngIf="item.flavor"> <b>Flavor:</b> {{item.flavor}}</div>
+        <div *ngIf="item.addition"> <b>Addition:</b> {{item.addition}}</div>
+        <div *ngIf="item.sides"> <b>Sides:</b> {{item.sides}}</div>
+        <div *ngIf="item.request"> <b>Request:</b> {{item.request}}</div>
+        <button (click)="onSelect(item)">x</button>   
     </div>
 </div>
 <h5>Completed Items:</h5>
 <div *ngFor="let item of order.items">
-    <div *ngIf="item.completed" (click)="onSelect(item)">
-        <p>{{item.count}} x {{item.name}} ${{item.price}}</p>
-        <p *ngIf="item.portion"> <b> Portion: </b> {{item.portion}}</p>    
-        <p *ngIf="item.flavor"> <b> Flavor: </b> {{item.flavor}}</p>
-        <p *ngIf="item.addition"> <b> Addition: </b> {{item.addition}}</p>
-        <p *ngIf="item.sides"> <b> Sides: </b> {{item.sides}}</p>
-        <p *ngIf="item.request"> <b> Request: </b> {{item.request}}</p>
-            
+    <div class="item" *ngIf="item.completed">
+        <div>{{item.count}} x {{item.name}} ${{item.price}}</div>
+        <div *ngIf="item.portion"> <b> Portion: </b> {{item.portion}}</div>    
+        <div *ngIf="item.flavor"> <b> Flavor: </b> {{item.flavor}}</div>
+        <div *ngIf="item.addition"> <b> Addition: </b> {{item.addition}}</div>
+        <div *ngIf="item.sides"> <b> Sides: </b> {{item.sides}}</div>
+        <div *ngIf="item.request"> <b> Request: </b> {{item.request}}</div>
+        <button (click)="onSelect(item)">x</button>   
     </div>
 </div>

@@ -1,13 +1,16 @@
 .card{
     display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: #d8d8d8;
     border-radius: 8px;
-    margin: 1px;
+    margin: 5px;
     width: 17%;
+    padding: 5px;
 }
 
 .container{
     display: flex;
+    padding: 2px 16px;
 }
 
 .no-select{

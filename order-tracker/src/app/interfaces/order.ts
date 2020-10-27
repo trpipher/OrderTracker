@@ -1,8 +1,8 @@
-import {item} from './item'
+import {Item} from './item'
 export interface Order {
     customer: string, 
     date: string, 
-    items: item[],
+    items: Item[],
     request: string,
     total: number
 }
